@@ -23,14 +23,3 @@ userchoice=getuserchoice()
 
 console.log("Computer chose:",bot,"\nUser Chose:",userchoice)
 
-//Applying Game rules
-
-if (userchoice==bot){
-    console.log("\n It's a Draw");
-}
-else if (userchoice==0 && bot==2 || userchoice==1 && bot==0 || userchoice==2 &&bot==1){
-    console.log("\n Player Won!!...");
-}
-else{
-    console.log("\n Computer Won !!....");
-}
