@@ -9,9 +9,37 @@ const next=document.querySelector("#next");
 const youchoice=document.querySelector("#user-choice");
 const botchoice=document.querySelector("#computer-choice");
 const currroundwinner=document.querySelector("#curr-round-winner");
+let youscore=document.querySelector("#you");
+let botscore=document.querySelector("#computer");
+let drawscore=document.querySelector("#draws");
+
+//Declaring Variables
+let userscore=0;
+let computerscore=0;
+let draws=0;
+
+//Making Function For Deciding Winner
+function getwinner(userchoice,computerchoice){
+    if (userchoice==1 && computerchoice==3 || userchoice==2 && computerchoice==1 || userchoice==3 && computerchoice==2){
+        userscore ++;
+        currroundwinner.textContent="User Won this Round!!";
+        youscore.textContent=`${userscore}`;
+    }
+    else if (userchoice==computerchoice){
+        draws ++;
+        currroundwinner.textContent="This Round Was Draw!!";
+        drawscore.textContent=`${draws}`;
+    }
+    else{
+        computerscore ++;
+        currroundwinner.textContent="Computer Won This Round!!";
+        botscore.textContent=`${computerscore}`;
+    }
+    return
+}
 
 //Using a Number variable to Store User Input
-userchoice=0;
+let userchoice=0;
 
 //Adding Functionality To Buttons
 rock.addEventListener('click',()=>{
@@ -37,9 +65,17 @@ confirm.addEventListener('click',()=>{
     else {
         botchoice.textContent='Computer Chose Scissors!!';
     }
+    getwinner(userchoice,computerchoice);
+    confirm.disabled=true;
+    next.disabled=false;
+})
 
-})
+//Initially Disabling The Next Button
+next.disabled=true;
+
 next.addEventListener('click',()=>{
-    alert("Next");
+    confirm.disabled=false;
+    youchoice.textContent='';
+    botchoice.textContent='';
+    currroundwinner.textContent='';
 })
-currroundwinner.textContent='Hey there!!';
