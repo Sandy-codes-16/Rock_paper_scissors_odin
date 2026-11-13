@@ -1,0 +1,15 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.display{
+    display: flex;
+    width:400px;
+    justify-content: space-between;
+}
+.curr-result{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
